@@ -1,0 +1,13 @@
+.page {
+  max-width: 70%;
+  display: flex;
+  margin: 10% auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  max-width: 500px;
+  padding-bottom: 20px;
+  text-align: center;
+}
