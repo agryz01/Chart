@@ -5,12 +5,12 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 const params = window.location.search.substring(1).split('&');
 
 const api = () => {
-  return fetch(`http://62.84.120.235:3001/users/${params}`, {
+  return fetch(`http://bot.max26h.ru/api/users/${params}`, {
     method: 'GET',
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTAyZTkxNGVlN2VkZWFhNTZjZTAxOWQiLCJpYXQiOjE2OTY2MDExMTZ9.FLTASSzUuXgx1-B9D5H28jvspNsvlAkWY_gWdjjQ7BI'
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTQzNTFlMTBkZTFjYjFjNjBkNmE2NmYiLCJpYXQiOjE2OTg5MTI3MTB9.JXXhnHbWvfWX6I9eCkh-x4s_6kTevAGxvXON0aDx6HQ'
     },
   })
     .then(res => {
@@ -19,21 +19,6 @@ const api = () => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     });
-  // return fetch(`http://localhost:3001/users/${params}`, {
-  //   method: 'GET',
-  //   credentials: 'include',
-  //   headers: {
-  //     'Content-Type': 'application/json; charset=UTF-8',
-  //     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTAxYmIyYTRhNzlhMGMxNWM2MmI2YTMiLCJpYXQiOjE2OTY1MDMzMjh9.swce9LrKgu9A42SvwGo-trjquoARVmx73_HIxN2YBQE'
-  //   },
-  // })
-  //   .then(res => {
-  //     if (res.ok) {
-  //       return res.json();
-  //     }
-  //     return Promise.reject(`Ошибка: ${res.status}`);
-  //   });
-
 };
 
 function App() {
