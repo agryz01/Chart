@@ -3,9 +3,10 @@ import './App.css';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 const params = window.location.search.substring(1).split('&');
+const week = params[1];
 
 const api = () => {
-  return fetch(`http://bot.max26h.ru/api/users/${params}`, {
+  return fetch(`http://bot.max26h.ru/charts/${params[0]}`, {
     method: 'GET',
     credentials: 'include',
     headers: {
@@ -32,17 +33,47 @@ function App() {
 
   React.useEffect(() => {
     api()
-      .then((user) => {
-        setOne(user.graphStatus.dayOne);
-        setTwo(user.graphStatus.dayTwo);
-        setThree(user.graphStatus.dayThree);
-        setFour(user.graphStatus.dayFour);
-        setFive(user.graphStatus.dayFive);
-        setSix(user.graphStatus.daySix);
-        setSeven(user.graphStatus.daySeven);
+      .then((data) => {
+        if (week === '14') {
+          setOne(data.day8);
+          setTwo(data.day9);
+          setThree(data.day10);
+          setFour(data.day11);
+          setFive(data.day12);
+          setSix(data.day13);
+          setSeven(data.day14);
+          return;
+        }
+        if (week === '21') {
+          setOne(data.day15);
+          setTwo(data.day16);
+          setThree(data.day17);
+          setFour(data.day18);
+          setFive(data.day19);
+          setSix(data.day20);
+          setSeven(data.day21);
+          return;
+        }
+        if (week === '28') {
+          setOne(data.day22);
+          setTwo(data.day23);
+          setThree(data.day24);
+          setFour(data.day25);
+          setFive(data.day26);
+          setSix(data.day27);
+          setSeven(data.day28);
+          return;
+        }
+        setOne(data.day1);
+        setTwo(data.day2);
+        setThree(data.day3);
+        setFour(data.day4);
+        setFive(data.day5);
+        setSix(data.day6);
+        setSeven(data.day7);
       })
       .catch((err) => console.log(err))
-  },[])
+  }, [])
 
   const data = [
     {
@@ -87,7 +118,7 @@ function App() {
       <h1 className='title'>График самочувствия за 7 дней</h1>
       <div className='conteiner'>
         <LineChart
-          width={500}
+          width={week === '30' ? 1000 : 500}
           height={300}
           data={data}
           margin={{
