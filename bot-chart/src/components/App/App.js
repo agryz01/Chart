@@ -6,7 +6,7 @@ const params = window.location.search.substring(1).split('&');
 const week = params[1];
 
 const api = () => {
-  return fetch(`http://bot.max26h.ru/charts/${params[0]}`, {
+  return fetch(`http://92.63.107.183/charts/${params[0]}`, {
     method: 'GET',
     credentials: 'include',
     headers: {
